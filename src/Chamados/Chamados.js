@@ -37,6 +37,7 @@ const Chamados = (props) => {
   React.useEffect(() => {
     fetchData();
   }, []);
+  const handleDelete = () => {};
 
   const handleAbrirOpenModal = () => {
     setAbrirOpen(true);
@@ -53,8 +54,10 @@ const Chamados = (props) => {
   const chamadoAction = (chamado, action) => {
     setChamado(chamado);
     if (action == "ver") {
-        console.log(action, chamado)
       handleResolverOpenModal();
+    }
+    if (action == "deletar") {
+      handleDelete();
     }
   };
 
@@ -92,14 +95,22 @@ const Chamados = (props) => {
           <ModalAbrirChamado handleClose={handleAbrirClose} />
         </DialogContent>
       </Dialog>
-      <Dialog open={openResolver} onClose={handleResolverOpenModal} maxWidth="xs" fullWidth>
+      <Dialog
+        open={openResolver}
+        onClose={handleResolverOpenModal}
+        maxWidth="xs"
+        fullWidth
+      >
         <DialogTitleDefault
           icon={<CloseOutlined />}
           text="Ficha do Chamado"
           setOpen={() => setResolverOpen(false)}
         />
         <DialogContent>
-          <ModalResolverChamado handleClose={handleResolverOpenModal} chamado={chamado} />
+          <ModalResolverChamado
+            handleClose={handleResolverOpenModal}
+            chamado={chamado}
+          />
         </DialogContent>
       </Dialog>
       {data && (

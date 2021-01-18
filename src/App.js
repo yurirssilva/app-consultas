@@ -26,9 +26,13 @@ import {
   PersonRounded,
   ShoppingCartRounded,
   PollRounded,
+  Group,
+  Work,
 } from "@material-ui/icons";
 import Estoque from "./Estoque/Estoque";
 import Chamados from "./Chamados/Chamados";
+import Setores from "./Setores/Setores";
+import Servicos from "./Servicos/Servicos";
 
 const drawerWidth = 240;
 
@@ -79,9 +83,11 @@ function App(props) {
   const menuList = [
     { text: "Início", icon: <HomeRounded />, link: "/" },
     { text: "Funcionários", icon: <PersonRounded />, link: "/funcionarios" },
+    { text: "Setores", icon: <Group />, link: "/setores" },
+    { text: "Serviços", icon: <Work />, link: "/servicos" },
     { text: "Estoque", icon: <ShoppingCartRounded />, link: "/estoque" },
     { text: "Chamados", icon: <DescriptionRounded />, link: "/chamados" },
-    { text: "Relatórios", icon: <PollRounded />, link: "/relatorios" },
+    // { text: "Relatórios", icon: <PollRounded />, link: "/relatorios" },
   ];
 
   const handleToolbar = (text) => {
@@ -160,6 +166,8 @@ function App(props) {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/funcionarios" element={<Funcionarios />} />
+              <Route path="/setores" element={<Setores />} />
+              <Route path="/servicos" element={<Servicos />} />
               <Route path="/estoque" element={<Estoque />} />
               <Route path="/chamados" element={<Chamados />} />
             </Routes>
